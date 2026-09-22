@@ -23,3 +23,7 @@
 6. Can I build a kitchen in the east?
    क्या मैं पूर्व दिशा में रसोई बना सकता हूँ?
    Topic ID: `kitchen_east_location`
+
+7. Can I build a kitchen in the west?
+   क्या मैं पश्चिम दिशा में रसोई बना सकता हूँ?
+   Topic ID: `kitchen_west_location`
