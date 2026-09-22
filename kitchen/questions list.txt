@@ -7,3 +7,7 @@
 2. Can I build a kitchen in the northeast?
    क्या मैं उत्तर-पूर्व में रसोई बना सकता हूँ?
    Topic ID: `kitchen_northeast_location`
+
+3. Can I build a kitchen in the southeast?
+   क्या मैं दक्षिण-पूर्व में रसोई बना सकता हूँ?
+   Topic ID: `kitchen_southeast_location`
