@@ -12,6 +12,14 @@
 - **Validation:** CSV parsing, embedded JSON parsing, BOM checks, row-width checks, unique record/topic/remedy checks, Knowledge–Vocabulary references, bilingual question/remedy parity, condition-value checks, search-field recomputation, and exact/equivalent/negative matching fixtures passed locally.
 - **Review/source status:** draft, test-only, unreviewed; both Vocabulary rows are inactive. The existing approved kitchen source URL was retained as a starting reference, but specific stove–sink source support could not be verified because external lookup returned HTTP 401. Editorial source verification and native-speaker Hindi review remain required before activation or publication.
 
-## Standalone CSV usage
+## Sequence 2 — 2026-09-22
 
-The CSV inside this folder is an exact one-row extract of the new Knowledge record, including both language objects. Do not import both the standalone extract and the same row from `VastuKnowledge_Master.csv`; they share the same stable record ID and topic ID, so doing so would attempt to import the same record twice.
+- **Topic ID:** `kitchen_northeast_location`
+- **English primary question:** Can I build a kitchen in the northeast?
+- **Hindi primary question:** क्या मैं उत्तर-पूर्व में रसोई बना सकता हूँ?
+- **Files updated:** `VastuKnowledge_Master.csv`, `VastuVocabulary_Master.csv`; numbered UTF-8 BOM snapshots saved as `kitchen/VastuKnowledge_Master_2.csv` and `kitchen/VastuVocabulary_Master_2.csv`.
+- **Chat flows:** `VastuChatFlows_Master.csv` was inspected and left unchanged; its existing generic remedy and construction-stage flows are reused.
+- **Newest-topic audit:** generation Sequence 1 and commit `f8a4359` identify `kitchen_stove_sink_adjacency` as the most recently generated topic; CSV row order was not used as the evidence.
+- **Duplicate check:** compared topic IDs, English/Hindi questions, normalized aliases, and meaning across all 6 earlier Knowledge topics, all 12 earlier Vocabulary rows, the generation log, and the tracked question list. The new whole-room northeast-location situation was not present. It is distinct from stove–sink adjacency, entrance position, open-plan layout, kitchen beneath stairs, kitchen prayer niches, and toilet-door alignment.
+- **Validation:** CSV and embedded JSON parsing, UTF-8 BOM, row-width, unique record/topic/remedy, Knowledge–Vocabulary reference, bilingual question/remedy parity, supported construction-stage condition, generated search-field, exact/equivalent/ambiguous-negative matching, and numbered-snapshot equality checks passed locally.
+- **Review/source status:** draft, test-only, unreviewed; both new Vocabulary rows are inactive. The existing approved general kitchen source URL was retained only as a starting reference. Specific northeast-kitchen source support could not be verified because external lookup returned HTTP 401 and direct network access returned HTTP 403. Editorial source verification and native-speaker Hindi review remain required before activation or publication.
