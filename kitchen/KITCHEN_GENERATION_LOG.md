@@ -59,3 +59,15 @@
 - **Duplicate check:** compared topic IDs, English/Hindi questions, normalized aliases, and meaning across all 9 earlier Knowledge topics, all 18 earlier Vocabulary rows, the generation log, and the tracked question list. The new discouraged southwest whole-room location situation was not present. It remains distinct from southeast, northeast, and northwest location topics and from appliance, entrance, open-plan, stairs, prayer-niche, and toilet-door questions.
 - **Validation:** CSV and embedded JSON parsing, UTF-8 BOM, row-width, unique record/topic/remedy IDs, Knowledge–Vocabulary references, bilingual question/remedy parity, supported construction-stage conditions, generated search-field structure, exact/equivalent/ambiguous-negative matching, preservation of every Sequence 4 record, and root-master checksum checks passed locally.
 - **Review/source status:** draft, test-only, unreviewed; both new Vocabulary rows are inactive. The existing general kitchen source URL was retained only as a starting reference. Specific southwest-kitchen support still requires editorial source verification, and native-speaker Hindi review remains required before activation or publication.
+
+## Sequence 6 — 2026-09-22
+
+- **Topic ID:** `kitchen_east_location`
+- **English primary question:** Can I build a kitchen in the east?
+- **Hindi primary question:** क्या मैं पूर्व दिशा में रसोई बना सकता हूँ?
+- **Files created:** numbered UTF-8 BOM snapshots `kitchen/VastuKnowledge_Master_6.csv` and `kitchen/VastuVocabulary_Master_6.csv`. The three root master CSVs were not changed.
+- **Chat flows:** `VastuChatFlows_Master.csv` was inspected and left unchanged; its existing generic remedy and construction-stage flows are reused.
+- **Newest-topic audit:** generation Sequence 5 identifies `kitchen_southwest_location` as the immediately preceding topic. The numbered Sequence 5 snapshots were used as the base, without changing any existing record.
+- **Duplicate check:** compared topic IDs, English/Hindi questions, normalized aliases, and meaning across all 10 earlier Knowledge topics, all 20 earlier Vocabulary rows, the generation log, and the tracked question list. The new broad east-side location question was not present. It explicitly requires clarification of whether the kitchen is in the southeast, east-centre, or northeast and remains distinct from the existing precise directional topics.
+- **Validation:** CSV and embedded JSON parsing, UTF-8 BOM, row-width, unique record/topic/remedy IDs, Knowledge–Vocabulary references, bilingual question/remedy parity, supported construction-stage conditions and verdict value, generated search-field structure, exact/equivalent/ambiguous matching, preservation of every Sequence 5 record, and root-master checksum checks passed locally.
+- **Review/source status:** draft, test-only, unreviewed; both new Vocabulary rows are inactive. The existing general kitchen source URL was retained only as a starting reference. Specific east-side kitchen support still requires editorial source verification, and native-speaker Hindi review remains required before activation or publication.

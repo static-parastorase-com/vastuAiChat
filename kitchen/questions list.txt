@@ -19,3 +19,7 @@
 5. Can I build a kitchen in the southwest?
    क्या मैं दक्षिण-पश्चिम में रसोई बना सकता हूँ?
    Topic ID: `kitchen_southwest_location`
+
+6. Can I build a kitchen in the east?
+   क्या मैं पूर्व दिशा में रसोई बना सकता हूँ?
+   Topic ID: `kitchen_east_location`
