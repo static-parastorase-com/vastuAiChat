@@ -1,1 +1,9 @@
+# Present Questions
 
+1. Can the kitchen stove and sink be next to each other?
+   क्या रसोई का चूल्हा और सिंक एक-दूसरे के पास हो सकते हैं?
+   Topic ID: `kitchen_stove_sink_adjacency`
+
+2. Can I build a kitchen in the northeast?
+   क्या मैं उत्तर-पूर्व में रसोई बना सकता हूँ?
+   Topic ID: `kitchen_northeast_location`
