@@ -1,4 +1,17 @@
-# APZOK Vastu Chat — CSV Content Instructions
+# APZOK Vastu Chat — English and Hindi CSV Instructions
+
+## Release scope
+
+Create release content only for English (`en`) and Hindi (`hi`). This scope
+replaces the older multilingual content-generation requirement. Do not generate
+other-language rows, translation placeholders, or UI packs in these release CSVs.
+The backend may retain its broader language registry; do not modify it solely
+to restrict the release data.
+
+Keep older multilingual masters unchanged as backups. Preserve all existing
+English and Hindi content and stable IDs in the selected release masters.
+Filtering other languages from release copies is intentional, not permission
+to delete source files or live CMS records.
 
 ## Goal
 
@@ -34,7 +47,7 @@ Do not silently change the backend to make content fit.
 Before editing:
 - Identify the latest authoritative master CSV for each collection.
 - Preserve existing record IDs, topic IDs, remedy IDs, and flow IDs.
-- Preserve all existing questions, answers, translations, conditions,
+- Preserve all existing English and Hindi questions, answers, translations, conditions,
   steps, limitations, source notes, and relationships.
 - Avoid duplicate records and duplicate aliases.
 - Do not replace full masters with files containing only new rows.
@@ -81,6 +94,11 @@ Store reusable conversation messages and controls supported by
 the backend.
 
 Preserve existing flow IDs and action contracts.
+Reuse existing flows for new questions and any supported remedy count.
+Do not create one flow per question or remedy. Change flows only when a shared
+message, translation, or supported interaction actually needs an update.
+Retain existing draft flows as draft unless their completion and review are
+part of the requested task; report any remaining English or Hindi flow gaps.
 Do not create a flow expecting new behavior unless the engine
 actually handles it.
 
@@ -172,21 +190,24 @@ supported by the current backend.
 
 ## 8. Languages
 
-Read supported language codes from the backend registry.
+Use only these two content languages:
 
-For each translation:
-- Preserve the original meaning and conditions.
-- Use natural grammar and the correct script.
-- Translate answers, remedy steps, limitations, and user-facing labels.
-- Keep technical IDs unchanged.
-- Do not claim human or native-speaker review unless it occurred.
+| Code | Language | Script |
+|------|----------|--------|
+| en | English | Latin |
+| hi | Hindi | Devanagari |
 
-Keep incomplete translations explicitly marked as missing.
-Keep placeholder vocabulary inactive.
-Do not mark untranslated content as complete.
+Verify both codes are supported by the current backend.
+Translate complete questions, answers, verdicts, remedies, steps, limitations,
+and applicable labels. Use natural Hindi grammar and preserve every condition.
+Keep IDs and action values unchanged. Do not label English fallback text as Hindi.
+Romanized Hindi aliases may be added only where the current matcher and language
+routing support them; they do not replace the Hindi translation.
 
-If a language is unsupported, report the backend work required
-instead of adding an unusable language code.
+Complete both languages for each new release topic. If a translation cannot be
+completed reliably, mark the gap using the current schema, keep the affected
+vocabulary inactive, and report the item as unfinished. Do not claim human or
+native-speaker review unless it occurred.
 
 ## 9. Publication
 
@@ -250,9 +271,9 @@ Do not claim live Wix or Android testing from local tests alone.
 ## 12. Deliverables
 
 Provide complete updated masters:
-- VastuKnowledge_Master.csv
-- VastuVocabulary_Master.csv
-- VastuChatFlows_Master.csv
+- VastuKnowledge_Master_English_Hindi.csv
+- VastuVocabulary_Master_English_Hindi.csv
+- VastuChatFlows_Master_English_Hindi.csv
 
 Also provide:
 - A short change report
@@ -263,55 +284,6 @@ Also provide:
 
 Never claim that all languages or content are complete unless
 the generated files actually contain and validate that content.
-
-## Supported languages — complete coverage
-
-Prepare content for all 23 supported languages:
-
-| Code | Language |
-|------|----------|
-| en | English |
-| kn | Kannada |
-| hi | Hindi |
-| ta | Tamil |
-| te | Telugu |
-| ml | Malayalam |
-| bn | Bengali |
-| mr | Marathi |
-| gu | Gujarati |
-| ur | Urdu |
-| pa | Punjabi |
-| or | Odia |
-| as | Assamese |
-| mai | Maithili |
-| sat | Santali |
-| ks | Kashmiri |
-| ne | Nepali |
-| sd | Sindhi |
-| doi | Dogri |
-| kok | Konkani |
-| mni | Manipuri / Meitei |
-| brx | Bodo |
-| sa | Sanskrit |
-
-Verify these codes against the current backend registry before editing.
-This list covers English and the 22 scheduled Indian languages;
-it does not represent every language spoken in India.
-
-Translate complete user-facing content:
-- Questions and meaningful question variations
-- Short and detailed answers
-- Qualified yes/no verdicts
-- Suggestions and remedies
-- Every remedy step and limitation
-- Options, button labels, and clarification messages
-- Fallback and end-of-suggestions messages
-
-Preserve meaning, conditions, grammar, and appropriate script.
-Keep internal IDs and action values unchanged.
-Do not substitute English text and label it as a completed translation.
-Record missing translations honestly and keep their vocabulary inactive.
-Do not claim native-speaker review unless it occurred.
 
 ## Comprehensive content collection
 
@@ -380,11 +352,11 @@ Never silently truncate content or claim unlimited support.
 ## Prepare complete, import-ready CSV masters
 
 Produce:
-1. VastuKnowledge_Master.csv
-2. VastuVocabulary_Master.csv
-3. VastuChatFlows_Master.csv
+1. VastuKnowledge_Master_English_Hindi.csv
+2. VastuVocabulary_Master_English_Hindi.csv
+3. VastuChatFlows_Master_English_Hindi.csv
 
-Preserve all existing records and stable IDs.
+Preserve all existing in-scope records and stable IDs; retain multilingual source backups.
 Use exact current headers, field types, JSON structures, and enum values.
 
 Maintain:
@@ -395,8 +367,10 @@ Maintain:
 - ChatFlows: one row per supported flow ID, following the current
   localized flow structure.
 
-For example, five topics across 23 languages normally require
-115 vocabulary rows, including any explicitly inactive pending rows.
+For topic vocabulary, five topics across two languages require 10 rows.
+Ten new topics require 10 new Knowledge rows and 20 new topic Vocabulary rows.
+Translations and aliases do not count as separate new topics. Preserve any
+existing non-topic vocabulary required by the engine.
 
 Use UTF-8 CSV with correctly escaped JSON.
 Validate every row, reference, language entry, remedy, and action.
@@ -412,3 +386,37 @@ Deliver a coverage report showing:
 
 Do not describe the files as complete or ready for publication
 when content, translations, or required checks remain unfinished.
+
+## Duplicate prevention and construction scope
+
+Before choosing new topics, inspect every authoritative master and pending batch.
+Compare normalized wording and meaning across both languages. Check topic IDs,
+primary questions, aliases, conditions, and existing answers. A paraphrase,
+translation, or typo variation is not a new topic. Avoid duplicates within the
+new batch as well. Reuse an existing topic for equivalent questions; create a
+new topic only for a genuinely different situation. Do not conflate different
+directions, spatial relationships, or construction stages.
+
+When asked for a fixed number of NEW topics, replace duplicate candidates with
+uncovered topics until the requested number of distinct supported topics is met.
+If source coverage prevents completion, report the shortfall rather than inventing.
+Focus on Vastu questions related to building planning, construction, existing
+layouts, and renovation. Select uncovered subjects from the actual dataset.
+
+## First task command: 10 new topics
+
+When the user requests the first batch, execute this task:
+
+Read these instructions, the current backend, validators, and existing CSV masters.
+Create 10 genuinely new construction-related Vastu topics in English and Hindi
+only. Check existing files and pending batches for semantic and exact duplicates
+before selecting topics. Preserve all existing in-scope content and IDs.
+Prepare complete questions, answers, applicable remedies, steps, limitations,
+clarification options, and supported follow-ups in both languages. Include all
+relevant supported remedies without imposing an arbitrary count or exceeding
+actual backend limits. Reuse ChatFlows; do not add flows per topic.
+Generate the three complete English–Hindi master CSVs named above, run relevant
+validation and engine tests, and provide a change/coverage report. If ChatFlows
+needs no content changes, include its current English–Hindi master unchanged.
+Do not modify backend code or publish to Wix unless separately requested.
+Proceed to create the files rather than stopping at a plan.
