@@ -5,7 +5,7 @@
 - **Topic ID:** `kitchen_stove_sink_adjacency`
 - **English primary question:** Can the kitchen stove and sink be next to each other?
 - **Hindi primary question:** क्या रसोई का चूल्हा और सिंक एक-दूसरे के पास हो सकते हैं?
-- **Files updated:** `VastuKnowledge_Master.csv`, `VastuVocabulary_Master.csv`
+- **Files updated:** `VastuKnowledge_Master.csv`, `VastuVocabulary_Master.csv`; standalone one-topic extract created at `kitchen/VastuKnowledge_kitchen_stove_sink_adjacency_English_Hindi.csv`.
 - **Chat flows:** `VastuChatFlows_Master.csv` was inspected and left unchanged; its existing generic remedy and construction-stage flows are reused.
 - **Newest-topic audit:** no earlier generation log exists. Git history shows all five pre-existing topics first arriving together in commit `951ed72` and all receiving updates together in commit `3257327`; their creation timestamps are identical. The available history therefore cannot identify one uniquely most-recent pre-existing topic, and CSV row order was not used as a proxy.
 - **Duplicate check:** compared the new situation by topic ID, English/Hindi questions, aliases, and meaning against all 5 Knowledge topics and all 10 Vocabulary rows. No existing or pending batch was found. The new same-counter stove/sink adjacency situation is distinct from toilet-door alignment, open-plan kitchens, kitchens beneath stairs, kitchen prayer niches, and kitchen entrances.
